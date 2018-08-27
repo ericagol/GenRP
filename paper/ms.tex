@@ -125,7 +125,7 @@
 \newcommand{\racomment}[1]{{\color{magenta}#1}}
 
 \newcommand{\response}[1]{{#1}}
-\newcommand{\responseb}[1]{{\color{blue}{#1}}}
+\newcommand{\responseb}[1]{{#1}}
 
 
 % \shorttitle{}
@@ -153,6 +153,10 @@ to astronomical time series
 \altaffiltext{\uw}{Astronomy Department, University of Washington,
                    Seattle, WA}
 
+\edef \cca {\arabic{affilcounter}}\stepcounter{affilcounter}
+\altaffiltext{\cca}{Center for Computational Astrophysics,
+                   Flatiron Institue, New York, NY}
+
 \edef \guggenheim {\arabic{affilcounter}}\stepcounter{affilcounter}
 \altaffiltext{\guggenheim}{Guggenheim Fellow}
 
@@ -160,19 +164,20 @@ to astronomical time series
 \altaffiltext{\iis}{Department of Computational and Data Sciences,
                     Indian Institute of Science, Bangalore, India}
 
-\edef \simons {\arabic{affilcounter}}\stepcounter{affilcounter}
-\altaffiltext{\simons}{Simons Fellow}
+%\edef \simons {\arabic{affilcounter}}\stepcounter{affilcounter}
+%\altaffiltext{\simons}{Simons Fellow}
 
 \edef \columbia {\arabic{affilcounter}}\stepcounter{affilcounter}
-\altaffiltext{\columbia}{Department of Astronomy, Columbia University,
+\altaffiltext{\columbia}{Simons Fellow;
+                         Department of Astronomy, Columbia University,
                          New York, NY}
 
 
 \author{%
-    Daniel~Foreman-Mackey\altaffilmark{\sagan,\uw},
+    Daniel~Foreman-Mackey\altaffilmark{\sagan,\uw,\cca},
     Eric~Agol\altaffilmark{\uw,\guggenheim},
     Sivaram~Ambikasaran\altaffilmark{\iis}, and
-    Ruth~Angus\altaffilmark{\simons,\columbia}
+    Ruth~Angus\altaffilmark{\columbia}
 }
 
 
@@ -293,8 +298,8 @@ Alongside this paper, we have released well-tested and documented open source
 implementations written in \project{C++}, \project{Python}, and
 \project{Julia}.
 These are available online at \project{GitHub}
-\url{https://github.com/dfm/celerite} and \project{Zenodo}
-\citep{Foreman-Mackey:2017}.
+\url{https://github.com/dfm/celerite} and
+\dataset[Zenodo]{https://doi.org/10.5281/zenodo.806847}.
 
 \section{Gaussian processes}\sectlabel{gps}
 
@@ -403,7 +408,6 @@ Furthermore, the covariance function for the \celerite\ method is
 In other words, $k_\bvec{\alpha}(t_n,\,t_m)$ is only a function of $\tau_{nm}
 \equiv |t_n - t_m|$.
 
-\newpage
 \section{The celerite model}\sectlabel{celerite}
 
 To scale GP models to larger datasets, \citet{Rybicki:1995} presented a method
@@ -850,7 +854,6 @@ find that this method is about a factor of 20 faster than an optimized
 implementation of the earlier, more general method from
 \citet{Ambikasaran:2015}.
 
-\newpage
 \subsection{Scalable computation of celerite models}\sectlabel{scalable}
 
 The \celeriteterm\ model described in \sect{celerite} can be exactly
@@ -1177,7 +1180,7 @@ We then sample the joint posterior probability (\eqalt{joint-post}) using
 We initialize \exampleinwalkers~walkers\footnote{\responseb{``Walker'' is the
 name given by \citet{Goodman:2010} and \citet{Foreman-Mackey:2013} to each
 parallel MCMC chain in the ensemble sampling algorithm used in \emcee.}} by
-sampling from a three-dimensional isotropic Gaussian centered the MAP
+sampling from a three-dimensional isotropic Gaussian centered the on MAP
 parameter vector and with a standard deviation of $10^{-4}$ in each dimension.
 We then run \exampleinburn~steps of burn-in and \exampleinsteps~steps of MCMC.
 To assess convergence, we estimate the integrated autocorrelation time of the
@@ -1354,7 +1357,7 @@ other problems as well.
 \end{center}
 \end{figure}
 
-
+\newpage
 \subsection{Example 3: Stellar rotation} \sectlabel{rotation}
 
 A source of variability that can be measured from time series measurements of
@@ -2052,8 +2055,9 @@ source software package that implements the method and all of the examples
 discussed in these pages.
 This software is available on GitHub
 \url{https://github.com/dfm/celerite}\footnote{This version of the paper was
-generated with git commit \texttt{\githash} (\gitdate).} and Zenodo
-\citep{Foreman-Mackey:2017}, and it is made available under the MIT license.
+generated with git commit \texttt{\githash} (\gitdate).} and
+\dataset[Zenodo]{https://doi.org/10.5281/zenodo.806847}, and it is made
+available under the MIT license.
 
 \acknowledgments
 It is a pleasure to thank

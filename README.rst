@@ -10,7 +10,7 @@ Read the documentation at: `celerite.rtfd.io <http://celerite.readthedocs.io>`_.
     :target: https://travis-ci.org/dfm/celerite
 .. image:: https://ci.appveyor.com/api/projects/status/74al24yklrlrvwni/branch/master?svg=true&style=flat
     :target: https://ci.appveyor.com/project/dfm/celerite
-.. image:: https://readthedocs.org/projects/celerite/badge/?version=latest&style=flat&bust=true
+.. image:: https://readthedocs.org/projects/celerite/badge/?version=latest&style=flat&bust=truer
     :target: http://celerite.readthedocs.io/en/latest/?badge=latest
 .. image:: https://zenodo.org/badge/DOI/10.5281/zenodo.806847.svg?style=flat
    :target: https://doi.org/10.5281/zenodo.806847
@@ -33,6 +33,9 @@ If you make use of this code, please cite the following paper:
          title = {Fast and scalable Gaussian process modeling
                   with applications to astronomical time series},
           year = {2017},
-       journal = {ArXiv},
+       journal = {AJ},
+        volume = {154},
+         pages = {220},
+           doi = {10.3847/1538-3881/aa9332},
            url = {https://arxiv.org/abs/1703.09710}
     }
